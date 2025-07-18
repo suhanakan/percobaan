@@ -4,7 +4,8 @@ import { Twitter, Send, ArrowUp, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { useState, useEffect, useRef } from "react"
-import { Chat } from "@/components/chat"
+// Hapus baris impor berikut:
+// - import { Chat } from "@/components/chat"
 
 export default function DobbieWebsite() {
   const [showScrollTop, setShowScrollTop] = useState(false)
@@ -377,6 +378,15 @@ export default function DobbieWebsite() {
         </div>
       </section>
 
+      {/* Hapus bagian ini dari JSX: */}
+      {/* New Chat Section */}
+      {/* <section className="relative z-10 py-20 px-4 bg-blue-700">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-5xl font-black text-white mb-8 text-center">CHAT DENGAN DOBBIE AI</h2>
+          <Chat />
+        </div>
+      </section> */}
+
       {/* Scroll to top button */}
       {showScrollTop && (
         <Button
@@ -400,14 +410,6 @@ export default function DobbieWebsite() {
           </h1>
         </div>
       </div>
-
-      {/* New Chat Section */}
-      <section className="relative z-10 py-20 px-4 bg-blue-700">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-5xl font-black text-white mb-8 text-center">CHAT DENGAN DOBBIE AI</h2>
-          <Chat />
-        </div>
-      </section>
 
       {/* Copyright Footer */}
       <footer className="relative z-10 bg-blue-900 py-8 px-4 border-t-4 border-yellow-400" data-animate id="footer">
