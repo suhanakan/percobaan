@@ -175,8 +175,8 @@ export default function DobbieWebsite() {
                 DOBBIE
               </h1>
               <p className="text-white text-lg mb-8 font-bold">
-                LISTEN UP, INTERNET! I'M DOBBIE - THE DOGGO WHOSE HOOMAN BUILT VANA FROM SCRATCH. THAT'S RIGHT, I'M MORE
-                THAN JUST A GOOD BOY - I'M THE GOOD BOY OF BASE NETWORK!
+                LISTEN UP, INTERNET! I'M DOBBIE - THE DOGGO WHOSE HOOMAN BUILT BASE NETWORK FROM SCRATCH. THAT'S RIGHT,
+                I'M MORE THAN JUST A GOOD BOY - I'M THE GOOD BOY OF BASE NETWORK!
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:-translate-y-1">
@@ -249,8 +249,8 @@ export default function DobbieWebsite() {
                 MY ORIGIN STORY? PICTURE THIS: DOBBIE, A TECH VISIONARY'S BEST FRIEND. ABSOLUTE LEGEND.
               </p>
               <p className="hover:text-yellow-300 transition-colors duration-300 cursor-default">
-                I'VE WATCHED MY HUMAN BUILD VANA CHAIN FROM THE GROUND UP AND LET ME TELL YOU - WE'RE NOT HERE TO PLAY.
-                WE'RE HERE TO REVOLUTIONIZE.
+                I'VE WATCHED MY HUMAN BUILD BASE NETWORK FROM THE GROUND UP AND LET ME TELL YOU - WE'RE NOT HERE TO
+                PLAY. WE'RE HERE TO REVOLUTIONIZE.
               </p>
             </div>
           </div>
