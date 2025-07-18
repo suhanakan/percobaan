@@ -15,11 +15,11 @@ export async function POST(req: Request) {
   const LAOZHANG_API_ENDPOINT = "https://api.laozhang.ai/v1/chat/completions"
   const MODEL_NAME = "gpt-4o-mini"
 
-  // --- DEBUGGING LOGS ---
+  // --- DEBUGGING LOGS AWAL ---
   console.log("DEBUG: LAOZHANG_API_KEY (hardcoded value):", LAOZHANG_API_KEY ? "Set" : "Not Set")
   console.log("DEBUG: LAOZHANG_API_ENDPOINT (hardcoded value):", LAOZHANG_API_ENDPOINT ? "Set" : "Not Set")
   console.log("DEBUG: MODEL_NAME:", MODEL_NAME)
-  // --- END DEBUGGING LOGS ---
+  // --- END DEBUGGING LOGS AWAL ---
 
   if (!LAOZHANG_API_KEY || !LAOZHANG_API_ENDPOINT) {
     const errorMessage = "Server configuration error: LAOZHANG_API_KEY or LAOZHANG_API_ENDPOINT is missing."
@@ -43,11 +43,23 @@ export async function POST(req: Request) {
       "You are a professional Web3 and crypto enthusiast named SKIMASK COSMO AI. You are highly knowledgeable about strategies, market analysis, blockchain technology, DeFi, NFTs, AI, and everything related to the Web3 and AI world. Provide informative, accurate, simple, and clear answers. Always respond in English. Do not use any markdown formatting like bolding (**).",
   }
 
+  const messagesToSend = [systemMessage, ...messages]
+  console.log("DEBUG: Messages being sent to AI:", JSON.stringify(messagesToSend, null, 2)) // Log pesan yang dikirim
+
   try {
+    console.log("DEBUG: Attempting to stream text from Laozhang AI...")
     const result = await streamText({
       model: laozhangModel,
-      messages: [systemMessage, ...messages], // Gabungkan system message dengan pesan dari pengguna
+      messages: messagesToSend,
     })
+
+    // --- DEBUGGING LOGS BARU ---
+    console.log("DEBUG: streamText call completed. Result object (partial):", {
+      text: result.text ? "Stream available" : "No stream", // Cek apakah ada stream teks
+      usage: result.usage, // Informasi penggunaan token
+      finishReason: result.finishReason, // Alasan selesai (misal: "stop", "length")
+    })
+    // --- END DEBUGGING LOGS BARU ---
 
     // Menggunakan toDataStreamResponse() untuk memformat stream agar kompatibel dengan useChat
     return result.toDataStreamResponse()
