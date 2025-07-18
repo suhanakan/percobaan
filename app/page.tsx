@@ -293,18 +293,22 @@ export default function DobbieWebsite() {
               visibleElements.has("join-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <Button
-              size="lg"
-              className="bg-white text-blue-700 hover:bg-gray-100 transition-all duration-300 hover:scale-110 hover:shadow-lg"
+            <a
+              href="https://x.com/baseddobbie"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-blue-700 hover:bg-gray-100 transition-all duration-300 hover:scale-110 hover:shadow-lg p-3 rounded-lg"
             >
               <Twitter className="w-5 h-5" />
-            </Button>
-            <Button
-              size="lg"
-              className="bg-white text-blue-700 hover:bg-gray-100 transition-all duration-300 hover:scale-110 hover:shadow-lg"
+            </a>
+            <a
+              href="https://t.me/baseddobbie"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-blue-700 hover:bg-gray-100 transition-all duration-300 hover:scale-110 hover:shadow-lg p-3 rounded-lg"
             >
               <Send className="w-5 h-5" />
-            </Button>
+            </a>
           </div>
 
           <div
@@ -437,18 +441,22 @@ export default function DobbieWebsite() {
             <div className="text-center">
               <h4 className="text-white font-bold text-lg mb-4">FOLLOW THE GOOD BOY</h4>
               <div className="flex justify-center space-x-4">
-                <Button
-                  size="sm"
-                  className="bg-white text-blue-700 hover:bg-gray-100 transition-all duration-300 hover:scale-110 hover:shadow-lg"
+                <a
+                  href="https://x.com/baseddobbie"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-blue-700 hover:bg-gray-100 transition-all duration-300 hover:scale-110 hover:shadow-lg p-2 rounded-lg"
                 >
                   <Twitter className="w-4 h-4" />
-                </Button>
-                <Button
-                  size="sm"
-                  className="bg-white text-blue-700 hover:bg-gray-100 transition-all duration-300 hover:scale-110 hover:shadow-lg"
+                </a>
+                <a
+                  href="https://t.me/baseddobbie"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-blue-700 hover:bg-gray-100 transition-all duration-300 hover:scale-110 hover:shadow-lg p-2 rounded-lg"
                 >
                   <Send className="w-4 h-4" />
-                </Button>
+                </a>
               </div>
             </div>
 
