@@ -1,11 +1,10 @@
 "use client"
 
-import { Twitter, Send, ArrowUp, ChevronDown } from "lucide-react"
+import { Twitter, Send, ArrowUp, ChevronDown, Copy } from "lucide-react" // Import Copy icon
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { useState, useEffect, useRef } from "react"
-// Hapus baris impor berikut:
-// - import { Chat } from "@/components/chat"
+import { useToast } from "@/hooks/use-toast" // Import useToast hook
 
 export default function DobbieWebsite() {
   const [showScrollTop, setShowScrollTop] = useState(false)
@@ -13,6 +12,9 @@ export default function DobbieWebsite() {
   const [visibleElements, setVisibleElements] = useState(new Set())
   const [tokenCount, setTokenCount] = useState(0)
   const observerRef = useRef<IntersectionObserver | null>(null)
+  const { toast } = useToast() // Initialize toast
+
+  const contractAddress = "0x2e8c0d9ef653325580978093ad431cf8b66f63dd"
 
   // Scroll animations and parallax effect
   useEffect(() => {
@@ -78,6 +80,22 @@ export default function DobbieWebsite() {
 
   const formatNumber = (num: number) => {
     return num.toLocaleString()
+  }
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(contractAddress)
+      toast({
+        title: "Copied!",
+        description: "Contract address copied to clipboard.",
+      })
+    } catch (err) {
+      toast({
+        title: "Failed to copy",
+        description: "Could not copy contract address.",
+        variant: "destructive",
+      })
+    }
   }
 
   return (
@@ -178,10 +196,39 @@ export default function DobbieWebsite() {
                 LISTEN UP, INTERNET! I'M DOBBIE - THE DOGGO WHOSE HOOMAN BUILT BASE NETWORK FROM SCRATCH. THAT'S RIGHT,
                 I'M MORE THAN JUST A GOOD BOY - I'M THE GOOD BOY OF BASE NETWORK!
               </p>
+              {/* Add Contract Address */}
+              <div className="mb-8 text-white text-sm font-bold flex flex-col items-center md:items-start">
+                <span className="mb-2">CONTRACT ADDRESS:</span>
+                <div className="flex items-center bg-blue-900 p-2 rounded-md border border-yellow-400">
+                  <a
+                    href={`https://basescan.org/address/${contractAddress}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-yellow-300 hover:underline truncate max-w-[200px] sm:max-w-none"
+                  >
+                    {contractAddress}
+                  </a>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={copyToClipboard}
+                    className="ml-2 text-white hover:text-yellow-300"
+                    aria-label="Copy contract address"
+                  >
+                    <Copy className="w-4 h-4" />
+                  </Button>
+                </div>
+              </div>
               <div className="grid grid-cols-2 gap-4">
-                <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:-translate-y-1">
-                  BUY NOW
-                </Button>
+                <a
+                  href="https://ape.store/base/0x2e8c0d9ef653325580978093ad431cf8b66f63dd"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:-translate-y-1">
+                    BUY NOW
+                  </Button>
+                </a>
                 <Button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:-translate-y-1">
                   Coming Soon
                 </Button>
