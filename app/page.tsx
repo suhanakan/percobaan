@@ -1,10 +1,10 @@
 "use client"
 
-import { Twitter, Send, ArrowUp, ChevronDown, Copy } from "lucide-react" // Import Copy icon
+import { Twitter, Send, ArrowUp, ChevronDown, Copy } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { useState, useEffect, useRef } from "react"
-import { useToast } from "@/hooks/use-toast" // Import useToast hook
+import { useToast } from "@/hooks/use-toast"
 
 export default function DobbieWebsite() {
   const [showScrollTop, setShowScrollTop] = useState(false)
@@ -12,7 +12,7 @@ export default function DobbieWebsite() {
   const [visibleElements, setVisibleElements] = useState(new Set())
   const [tokenCount, setTokenCount] = useState(0)
   const observerRef = useRef<IntersectionObserver | null>(null)
-  const { toast } = useToast() // Initialize toast
+  const { toast } = useToast()
 
   const contractAddress = "0x2e8c0d9ef653325580978093ad431cf8b66f63dd"
 
@@ -219,7 +219,9 @@ export default function DobbieWebsite() {
                   </Button>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4">
+                {" "}
+                {/* Changed to grid-cols-1 */}
                 <a
                   href="https://ape.store/base/0x2e8c0d9ef653325580978093ad431cf8b66f63dd"
                   target="_blank"
@@ -229,10 +231,7 @@ export default function DobbieWebsite() {
                     BUY NOW
                   </Button>
                 </a>
-                <Button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:-translate-y-1">
-                  Coming Soon
-                </Button>
-                {/* Removed DEX SCREENER and DEX TOOLS buttons */}
+                {/* Removed Coming Soon button */}
               </div>
             </div>
           </div>
