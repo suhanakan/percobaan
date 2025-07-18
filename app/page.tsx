@@ -429,7 +429,7 @@ export default function DobbieWebsite() {
                 />
                 <span className="text-white font-black text-xl">DOBBIE</span>
               </div>
-              <p className="text-white text-sm font-bold">© 2024 DOBBIE TOKEN. ALL RIGHTS RESERVED.</p>
+              <p className="text-white text-sm font-bold">© 2025 DOBBIE TOKEN. ALL RIGHTS RESERVED.</p>
               <p className="text-gray-300 text-xs mt-2">THE GOOD BOY OF BASE NETWORK</p>
             </div>
 
